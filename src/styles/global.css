@@ -61,7 +61,7 @@ footer {
 body {
   margin-inline: var(--s5-to-8);
   margin-block-start: var(--s7);
-  margin-block-end: 300px; /* custom: creates a virtual space at the end */
+  margin-block-end: 100px; /* custom: creates a virtual space at the end */
 }
 
 h1,
