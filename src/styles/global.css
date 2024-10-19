@@ -1,0 +1,76 @@
+:root {
+  --measure: 65ch;
+  --leading: 1.4;
+
+  /* @link https://utopia.fyi/type/calculator?c=320,16.42,1.2,1920,20.9,1.25,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
+  --f1: clamp(0.7127rem, 0.688rem + 0.1233vw, 0.836rem);
+  --f2: clamp(0.8552rem, 0.8173rem + 0.1898vw, 1.045rem);
+  --f3: clamp(1.0263rem, 0.9703rem + 0.28vw, 1.3063rem);
+  --f4: clamp(1.2315rem, 1.1512rem + 0.4013vw, 1.6328rem);
+  --f5: clamp(1.4778rem, 1.3652rem + 0.5632vw, 2.041rem);
+  --f6: clamp(1.7734rem, 1.6178rem + 0.7779vw, 2.5513rem);
+  --f7: clamp(2.128rem, 1.9158rem + 1.0611vw, 3.1891rem);
+  --f8: clamp(2.5536rem, 2.2671rem + 1.4327vw, 3.9864rem);
+
+  /* @link https://utopia.fyi/space/calculator?c=320,16.42,1.2,1920,20.9,1.25,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,m-2xl&g=s,l,xl,12 */
+  --s1: clamp(0.25rem, 0.2375rem + 0.0625vw, 0.3125rem);
+  --s2: clamp(0.5rem, 0.475rem + 0.125vw, 0.625rem);
+  --s3: clamp(0.75rem, 0.7rem + 0.25vw, 1rem);
+  --s4: clamp(1rem, 0.9375rem + 0.3125vw, 1.3125rem);
+  --s5: clamp(1.5625rem, 1.4875rem + 0.375vw, 1.9375rem);
+  --s6: clamp(2.0625rem, 1.95rem + 0.5625vw, 2.625rem);
+  --s7: clamp(3.0625rem, 2.8875rem + 0.875vw, 3.9375rem);
+  --s8: clamp(4.125rem, 3.9rem + 1.125vw, 5.25rem);
+  --s9: clamp(6.1875rem, 5.8625rem + 1.625vw, 7.8125rem);
+
+  --s5-to-8: clamp(1.5625rem, 0.825rem + 3.6875vw, 5.25rem);
+
+  font-family: "Source Serif 4 Variable", ui-serif, serif;
+  font-size: var(--f3);
+  font-weight: 425;
+  line-height: var(--leading);
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+
+  color-scheme: light;
+}
+
+*,
+*::before,
+*:after {
+  box-sizing: border-box;
+}
+
+* {
+  max-inline-size: var(--measure);
+  overflow-wrap: anywhere;
+  margin: 0;
+}
+
+html,
+body,
+div,
+header,
+nav,
+main,
+footer {
+  max-inline-size: none;
+}
+
+body {
+  margin-inline: var(--s5-to-8);
+  margin-block-start: var(--s7);
+  margin-block-end: 300px; /* custom: creates a virtual space at the end */
+}
+
+h1,
+h2,
+h3 {
+  line-height: 1cap;
+}
+
+h1 {
+  font-size: var(--f5);
+  font-weight: 800;
+}

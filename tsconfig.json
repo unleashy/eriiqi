@@ -4,7 +4,11 @@
     "plugins": [{ "name": "@astrojs/ts-plugin" }],
     "noFallthroughCasesInSwitch": true,
     "noPropertyAccessFromIndexSignature": true,
-    "useUnknownInCatchVariables": true
+    "useUnknownInCatchVariables": true,
+    "baseUrl": ".",
+    "paths": {
+      "◇*": ["src/*"]
+    }
   },
   "include": [".astro/types.d.ts", "src/**/*"],
   "exclude": ["dist"]

@@ -1,9 +1,12 @@
 ---
+import "@fontsource-variable/source-serif-4/standard.css";
+import "◇styles/global.css";
+
 interface Props {
   title: string;
 }
 
-const { title } = Astro.props;
+let { title } = Astro.props;
 ---
 
 <!doctype html>
@@ -14,7 +17,7 @@ const { title } = Astro.props;
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
   </head>
-  <body>
+  <body class="text">
     <slot />
   </body>
 </html>
