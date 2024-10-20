@@ -1,5 +1,4 @@
 noun:
-  etym: sokmething goes here
   defs:
     - word
     - bord
@@ -11,7 +10,7 @@ noun:
     - bord
     - word
     - bord
-  rel: [er, er]
+  rel: [eriiqì]
 
 verb:
   defs:

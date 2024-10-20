@@ -11,6 +11,7 @@ import "@fontsource/charis-sil";
 import IconArrowLeft from "../../components/IconArrowLeft.astro";
 import { capitalise } from "../../lib/capitalise";
 import { intersperse } from "../../lib/intersperse";
+import { pronounce } from "../../lib/pronounce";
 
 export const getStaticPaths = (async () => {
   const words = await getCollection("words");
@@ -36,7 +37,7 @@ let { data }: Props = Astro.props;
       </a>
     </div>
     <h1>{word}</h1>
-    <p class="ipa">/ipa/</p>
+    <p class="ipa">/{pronounce(word)}/</p>
   </Fragment>
 
   {
