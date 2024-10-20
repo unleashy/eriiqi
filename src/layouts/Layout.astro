@@ -4,9 +4,10 @@ import "◇styles/global.css";
 
 interface Props {
   title: string;
+  mainGap?: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9;
 }
 
-let { title } = Astro.props;
+let { title, mainGap = 4 } = Astro.props;
 ---
 
 <!doctype html>
@@ -24,7 +25,14 @@ let { title } = Astro.props;
     />
     <title>{title}</title>
   </head>
-  <body class="text">
-    <slot />
+  <body>
+    <Stack gap={6}>
+      <Stack as="header" gap={2}>
+        <slot name="header" />
+      </Stack>
+      <Stack as="main" gap={mainGap}>
+        <slot />
+      </Stack>
+    </Stack>
   </body>
 </html>

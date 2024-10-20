@@ -4,29 +4,20 @@ import Stack from "◇components/Stack.astro";
 ---
 
 <Layout title="Eriiqì: a Hsizu dictionary">
-  <Stack gap={6}>
-    <Stack as="header" gap={2}>
-      <h1>Eriiqì</h1>
-      <p>a Hsizu dictionary</p>
-    </Stack>
-    <Stack as="main" gap={4}>
-      <p>
-        Eriiqì is a web dictionary for the conlang Hsizu. Hsizu is a language
-        isolate spoken deep in the Eastern Himalayans by the Alfan inhabitants
-        of the area. Whilst it is written using the Alfan script, the Latin
-        romanisation created by Ayánè Ụhsi is widely used and also used here.
-      </p>
+  <Fragment slot="header">
+    <h1>Eriiqì</h1>
+    <p>a Hsizu dictionary</p>
+  </Fragment>
 
-      <p>
-        This dictionary catalogues all known Hsizu words plus etymology,
-        pronounciation, and declension.
-      </p>
-    </Stack>
-  </Stack>
+  <p>
+    Eriiqì is a web dictionary for the conlang Hsizu. Hsizu is a language
+    isolate spoken deep in the Eastern Himalayans by the Alfan inhabitants of
+    the area. Whilst it is written using the Alfan script, the Latin
+    romanisation created by Ayánè Ụhsi is widely used and also used here.
+  </p>
+
+  <p>
+    This dictionary catalogues all known Hsizu words plus etymology,
+    pronounciation, and declension.
+  </p>
 </Layout>
-
-<style>
-  :lang(x-hs) {
-    font-style: italic;
-  }
-</style>

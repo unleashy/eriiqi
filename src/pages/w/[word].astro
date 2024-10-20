@@ -1,0 +1,113 @@
+---
+import type {
+  InferGetStaticParamsType,
+  InferGetStaticPropsType,
+  GetStaticPaths,
+} from "astro";
+import { getCollection } from "astro:content";
+import Layout from "◇layouts/Layout.astro";
+import Stack from "◇components/Stack.astro";
+import "@fontsource/charis-sil";
+import IconArrowLeft from "../../components/IconArrowLeft.astro";
+import { capitalise } from "../../lib/capitalise";
+import { intersperse } from "../../lib/intersperse";
+
+export const getStaticPaths = (async () => {
+  const words = await getCollection("words");
+  return words.map((word) => ({
+    params: { word: word.id },
+    props: { data: word.data },
+  }));
+}) satisfies GetStaticPaths;
+
+type Params = InferGetStaticParamsType<typeof getStaticPaths>;
+type Props = InferGetStaticPropsType<typeof getStaticPaths>;
+
+let { word }: Params = Astro.params;
+let { data }: Props = Astro.props;
+---
+
+<Layout title=`${word} — Eriiqì: a Hsizu dictionary` mainGap={7}>
+  <Fragment slot="header">
+    <div>
+      <a href="/" class="back-link">
+        <IconArrowLeft />
+        back
+      </a>
+    </div>
+    <h1>{word}</h1>
+    <p class="ipa">/ipa/</p>
+  </Fragment>
+
+  {
+    Object.entries(data).map(([part, detail]) => (
+      <Stack as="article" gap={2}>
+        <h2>{capitalise(part)}</h2>
+
+        <Stack gap={4} class="indented">
+          <ol>
+            {detail.defs.map((def) => (
+              <li>{def}</li>
+            ))}
+          </ol>
+
+          {detail.etym !== undefined && (
+            <Stack gap={2}>
+              <h3>Etymology</h3>
+              <p>{detail.etym}</p>
+            </Stack>
+          )}
+
+          {detail.rel !== undefined && (
+            <Stack gap={2}>
+              <h3>See also</h3>
+              <p>
+                {intersperse(
+                  detail.rel.map((rel) => <a href=`/w/${rel.id}`>{rel.id}</a>),
+                  <>, </>
+                )}
+              </p>
+            </Stack>
+          )}
+        </Stack>
+      </Stack>
+    ))
+  }
+</Layout>
+
+<style>
+  h2 {
+    font-size: var(--f3);
+    font-weight: 600;
+  }
+
+  h3 {
+    font-size: inherit;
+    font-weight: 600;
+    font-variant: small-caps;
+    text-transform: lowercase;
+    letter-spacing: 0.033ch;
+  }
+
+  ol {
+    padding: 0;
+    list-style-position: inside;
+  }
+
+  li::marker {
+    font-size: var(--f2);
+    margin-inline-end: var(--s2);
+  }
+
+  .indented {
+    margin-inline-start: var(--s4);
+  }
+
+  .ipa {
+    font-family: "Charis SIL", var(--font-stack);
+  }
+
+  .back-link {
+    font-weight: 650;
+  }
+</style>

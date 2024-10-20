@@ -1,6 +1,14 @@
 @import "./_fonts.css";
 
 :root {
+  --c-grey-a3: #0000000f;
+  --c-grey-a5: #0000001f;
+  --c-grey-a11: #0000009b;
+  --c-grey-a6: #00000026;
+
+  --c-link: var(--c-grey-a11);
+  --c-link-hover-bg: var(--c-grey-a3);
+
   --measure: 65ch;
   --leading: 1.4;
 
@@ -77,4 +85,52 @@ h3 {
 h1 {
   font-size: var(--f5);
   font-weight: 800;
+  font-variation-settings: "opsz" 10;
+}
+
+a {
+  font-style: italic;
+  color: var(--c-link);
+  text-decoration: none;
+  border-radius: 0.4em;
+  transition: background 0.2s;
+
+  &:hover,
+  &:active,
+  &:focus {
+    background: var(--c-link-hover-bg);
+  }
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+  line-height: inherit;
+}
+
+.icon {
+  display: inline-block;
+  position: relative;
+  top: 1px;
+}
+
+@media (prefers-reduced-motion) {
+  *,
+  *::before,
+  *::after {
+    transition: none !important;
+    transition-duration: 0s !important;
+    animation-duration: 0s !important;
+  }
 }

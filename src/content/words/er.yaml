@@ -1,0 +1,23 @@
+noun:
+  etym: sokmething goes here
+  defs:
+    - word
+    - bord
+    - word
+    - bord
+    - word
+    - bord
+    - word
+    - bord
+    - word
+    - bord
+  rel: [er, er]
+
+verb:
+  defs:
+    - epic
+    - style
+
+pronoun:
+  defs:
+    - a
