@@ -8,7 +8,15 @@ const defTree: z.ZodType<DefTree> = z
     z
       .object({
         meaning: z.string(),
-        examples: z.string().array().nonempty().optional(),
+        examples: z
+          .object({
+            hs: z.string(),
+            en: z.string(),
+          })
+          .strict()
+          .array()
+          .nonempty()
+          .optional(),
         children: z.lazy(() => defTree).optional(),
       })
       .strict(),

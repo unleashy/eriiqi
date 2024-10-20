@@ -4,10 +4,15 @@ noun:
       children:
         - foo
         - meaning: bar
-          examples: [foobar, foobar]
+          examples:
+            - hs: foo
+              en: bar
+            - hs: baz
+              en: bux
         - meaning: epic
           examples:
-            - _*eriiqìna* sáá_ — I love *dictionaries*.
+            - hs: "*eriiqìna* sáá"
+              en: I love *dictionaries*.
     - epic
   etym: From {er} + {-ii} (diminutive) + {-qì} (one who does ...); literally "worder".
   rel: [er]

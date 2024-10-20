@@ -1,0 +1,76 @@
+---
+import type { DefTree } from "◇content/types";
+import Stack from "◇components/Stack.astro";
+
+interface Props {
+  defs: DefTree;
+}
+
+let { defs }: Props = Astro.props;
+---
+
+<Stack as="ol" gap={1}>
+  {
+    defs.map((def) =>
+      typeof def === "string" ? (
+        <li>{def}</li>
+      ) : (
+        <li>
+          <div class="nested-def">
+            <p>{def.meaning}</p>
+
+            {(def.examples ?? []).map((example) => (
+              <p class="example">
+                <i lang="x-hs">{example.hs}</i>
+                <span class="arrow">→</span>
+                {example.en}
+              </p>
+            ))}
+
+            {def.children !== undefined && <Astro.self defs={def.children} />}
+          </div>
+        </li>
+      ),
+    )
+  }
+</Stack>
+
+<style>
+  ol {
+    padding: 0;
+    list-style-position: inside;
+
+    &:has(:nth-child(10)) {
+      padding-inline-start: 2.8ch;
+      list-style-position: outside;
+    }
+  }
+
+  li {
+    & > * {
+      vertical-align: text-top;
+    }
+
+    & ol {
+      padding-inline-start: var(--s4);
+    }
+
+    &::marker {
+      font-size: var(--f2);
+      margin-inline-end: var(--s2);
+    }
+  }
+
+  .example {
+    margin-inline-start: var(--s5);
+  }
+
+  .nested-def {
+    display: inline-block;
+  }
+
+  .arrow {
+    padding-inline: var(--s1);
+    font-weight: 300;
+  }
+</style>
