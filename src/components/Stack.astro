@@ -4,12 +4,13 @@ import type { HTMLTag, Polymorphic } from "astro/types";
 type Props<Tag extends HTMLTag> = Polymorphic<{
   as: Tag;
   gap: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9;
+  class?: string;
 }>;
 
-let { as: Tag = "div", gap } = Astro.props;
+let { as: Tag = "div", gap, class: class_ } = Astro.props;
 ---
 
-<Tag class={`stack stack--gap:${gap}`}>
+<Tag class:list={["stack", `stack--gap:${gap}`, class_]}>
   <slot />
 </Tag>
 
