@@ -1,0 +1,26 @@
+diff --git a/dist/core/render/params-and-props.js b/dist/core/render/params-and-props.js
+index a8a90f3e6db1f360c94d64f3752a35761573d862..f1b3738b629621181b8c56ef3a59b450c8ec3f95 100644
+--- a/dist/core/render/params-and-props.js
++++ b/dist/core/render/params-and-props.js
+@@ -36,7 +36,7 @@ async function getProps(opts) {
+ }
+ function getParams(route, pathname) {
+   if (!route.params.length) return {};
+-  const paramsMatch = route.pattern.exec(pathname);
++  const paramsMatch = route.pattern.exec(decodeURIComponent(pathname));
+   if (!paramsMatch) return {};
+   const params = {};
+   route.params.forEach((key, i) => {
+diff --git a/dist/core/render-context.js b/dist/core/render-context.js
+index 0bc5336bbd3827ff73dd9b64f76d1c7733cafa81..30980870d9cd37f20bc088e4b0b0e0670e196cbf 100644
+--- a/dist/core/render-context.js
++++ b/dist/core/render-context.js
+@@ -61,7 +61,7 @@ class RenderContext {
+       pipeline,
+       locals,
+       sequence(...pipeline.internalMiddleware, middleware ?? pipelineMiddleware),
+-      decodeURI(pathname),
++      pathname,
+       request,
+       routeData,
+       status,
