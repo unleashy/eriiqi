@@ -92,6 +92,11 @@ let { data }: Props = Astro.props;
   ol {
     padding: 0;
     list-style-position: inside;
+
+    &:has(:nth-child(10)) {
+      padding-inline-start: 2.8ch;
+      list-style-position: outside;
+    }
   }
 
   li::marker {
@@ -100,7 +105,10 @@ let { data }: Props = Astro.props;
   }
 
   .indented {
-    margin-inline-start: var(--s4);
+    margin-inline-start: var(--s1);
+    padding-inline-start: var(--s3);
+    padding-block-end: var(--s1);
+    border-inline-start: 1px dashed var(--c-grey-a6);
   }
 
   .ipa {
