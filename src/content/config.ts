@@ -1,13 +1,7 @@
 import { defineCollection, reference, z } from "astro:content";
 import { glob } from "astro/loaders";
+import type { DefTree } from "./types";
 
-interface FullDef {
-  meaning: string;
-  examples?: string[];
-  children?: Array<string | FullDef>;
-}
-
-type DefTree = Array<string | FullDef>;
 const defTree: z.ZodType<DefTree> = z
   .union([
     z.string(),

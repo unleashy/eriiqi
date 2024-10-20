@@ -1,4 +1,13 @@
 noun:
   defs:
-    - foobar
+    - meaning: a dictionary
+      children:
+        - foo
+        - meaning: bar
+          examples: [foobar, foobar]
+        - meaning: epic
+          examples:
+            - _*eriiqìna* sáá_ — I love *dictionaries*.
+    - epic
+  etym: From {er} + {-ii} (diminutive) + {-qì} (one who does ...); literally "worder".
   rel: [er]

@@ -9,6 +9,7 @@ import Layout from "◇layouts/Layout.astro";
 import Stack from "◇components/Stack.astro";
 import IconArrowLeft from "◇components/IconArrowLeft.astro";
 import { capitalise, intersperse, pronounce } from "◇lib";
+import type { DefTree } from "◇content/types";
 import "@fontsource/charis-sil";
 
 export const getStaticPaths = (async () => {
@@ -26,7 +27,7 @@ let { word }: Params = Astro.params;
 let { data }: Props = Astro.props;
 ---
 
-<Layout title=`${word} — Eriiqì: a Hsizu dictionary` mainGap={7}>
+<Layout title={`${word} — Eriiqì: a Hsizu dictionary`} mainGap={7}>
   <Fragment slot="header">
     <div>
       <a href="/" class="back-link">
@@ -43,12 +44,31 @@ let { data }: Props = Astro.props;
       <Stack as="article" gap={2}>
         <h2>{capitalise(part)}</h2>
 
-        <Stack gap={4} class="indented">
-          <ol>
-            {detail.defs.map((def) => (
-              <li>{def}</li>
-            ))}
-          </ol>
+        <Stack gap={5} class="indented">
+          {(function renderDefs(defs: DefTree) {
+            return (
+              <Stack as="ol" gap={2}>
+                {defs.map((def) => {
+                  if (typeof def === "string") return;
+                  <li>{def}</li>;
+
+                  return (
+                    <li>
+                      <div style="display: inline-block">
+                        <p>{def.meaning}</p>
+
+                        {(def.examples ?? []).map((example) => (
+                          <p class="example">{example}</p>
+                        ))}
+
+                        {def.children !== undefined && renderDefs(def.children)}
+                      </div>
+                    </li>
+                  );
+                })}
+              </Stack>
+            );
+          })(detail.defs)}
 
           {detail.etym !== undefined && (
             <Stack gap={2}>
@@ -62,8 +82,10 @@ let { data }: Props = Astro.props;
               <h3>See also</h3>
               <p>
                 {intersperse(
-                  detail.rel.map((rel) => <a href=`/w/${rel.id}`>{rel.id}</a>),
-                  <>, </>
+                  detail.rel.map((rel) => (
+                    <a href={`/w/${rel.id}`}>{rel.id}</a>
+                  )),
+                  <>,</>,
                 )}
               </p>
             </Stack>
@@ -98,9 +120,19 @@ let { data }: Props = Astro.props;
     }
   }
 
-  li::marker {
-    font-size: var(--f2);
-    margin-inline-end: var(--s2);
+  li {
+    & > * {
+      vertical-align: text-top;
+    }
+
+    & ol {
+      padding-inline-start: var(--s4);
+    }
+
+    &::marker {
+      font-size: var(--f2);
+      margin-inline-end: var(--s2);
+    }
   }
 
   .indented {
@@ -120,5 +152,9 @@ let { data }: Props = Astro.props;
     &:hover {
       text-decoration: none;
     }
+  }
+
+  .example {
+    margin-inline-start: var(--s5);
   }
 </style>

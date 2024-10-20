@@ -4,13 +4,16 @@ import type { HTMLTag, Polymorphic } from "astro/types";
 type Props<Tag extends HTMLTag> = Polymorphic<{
   as: Tag;
   gap: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9;
+  inline?: boolean;
   class?: string;
 }>;
 
-let { as: Tag = "div", gap, class: class_ } = Astro.props;
+let { as: Tag = "div", gap, inline = false, class: class_ } = Astro.props;
 ---
 
-<Tag class:list={["stack", `stack--gap:${gap}`, class_]}>
+<Tag
+  class:list={["stack", `stack--gap:${gap}`, inline && `stack--inline`, class_]}
+>
   <slot />
 </Tag>
 
@@ -19,6 +22,10 @@ let { as: Tag = "div", gap, class: class_ } = Astro.props;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+  }
+
+  .stack--inline {
+    display: inline-flex;
   }
 
   .stack--gap\:1 > * + * {
