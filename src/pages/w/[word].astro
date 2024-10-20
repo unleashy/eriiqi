@@ -7,11 +7,9 @@ import type {
 import { getCollection } from "astro:content";
 import Layout from "◇layouts/Layout.astro";
 import Stack from "◇components/Stack.astro";
+import IconArrowLeft from "◇components/IconArrowLeft.astro";
+import { capitalise, intersperse, pronounce } from "◇lib";
 import "@fontsource/charis-sil";
-import IconArrowLeft from "../../components/IconArrowLeft.astro";
-import { capitalise } from "../../lib/capitalise";
-import { intersperse } from "../../lib/intersperse";
-import { pronounce } from "../../lib/pronounce";
 
 export const getStaticPaths = (async () => {
   const words = await getCollection("words");
