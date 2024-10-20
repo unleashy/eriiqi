@@ -1,4 +1,5 @@
 ---
+import { ClientRouter } from "astro:transitions";
 import Stack from "◇components/Stack.astro";
 import "◇styles/global.css";
 
@@ -11,7 +12,7 @@ let { title, mainGap = 4 } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" transition:animate="none">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -22,8 +23,10 @@ let { title, mainGap = 4 } = Astro.props;
       type="font/woff2"
       href="/fonts/SourceSerif4Variable-Roman.subset.woff2"
       crossorigin="anonymous"
+      transition:persist
     />
     <title>{title}</title>
+    <ClientRouter fallback="swap" />
   </head>
   <body>
     <Stack gap={6}>
