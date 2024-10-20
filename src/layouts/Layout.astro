@@ -1,6 +1,5 @@
 ---
-import "@fontsource-variable/source-serif-4/standard.css";
-import "@fontsource-variable/source-serif-4/standard-italic.css";
+import Stack from "◇components/Stack.astro";
 import "◇styles/global.css";
 
 interface Props {
@@ -16,6 +15,13 @@ let { title } = Astro.props;
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="generator" content={Astro.generator} />
+    <link
+      rel="preload"
+      as="font"
+      type="font/woff2"
+      href="/fonts/SourceSerif4Variable-Roman.subset.woff2"
+      crossorigin="anonymous"
+    />
     <title>{title}</title>
   </head>
   <body class="text">

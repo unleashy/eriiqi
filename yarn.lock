@@ -612,13 +612,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@fontsource-variable/source-serif-4@npm:^5.1.0":
-  version: 5.1.0
-  resolution: "@fontsource-variable/source-serif-4@npm:5.1.0"
-  checksum: 10c0/9fddb90a7255ae6f6d7cca9c02bb6d129a03a2b6dd1180d3bd69f0be41535b9b56ff3507d2a3384bd5287ade69fe30793e877322c28653c946cceb802f7e6eba
-  languageName: node
-  linkType: hard
-
 "@fontsource/charis-sil@npm:^5.1.0":
   version: 5.1.0
   resolution: "@fontsource/charis-sil@npm:5.1.0"
@@ -2520,7 +2513,6 @@ __metadata:
     "@astrojs/ts-plugin": "npm:^1.10.3"
     "@capsizecss/core": "npm:^4.1.2"
     "@capsizecss/metrics": "npm:^3.3.0"
-    "@fontsource-variable/source-serif-4": "npm:^5.1.0"
     "@fontsource/charis-sil": "npm:^5.1.0"
     astro: "npm:5.0.0-beta.5"
     lightningcss: "npm:^1.27.0"

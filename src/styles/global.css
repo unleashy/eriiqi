@@ -1,3 +1,5 @@
+@import "./_fonts.css";
+
 :root {
   --measure: 65ch;
   --leading: 1.4;
@@ -25,7 +27,9 @@
 
   --s5-to-8: clamp(1.5625rem, 0.825rem + 3.6875vw, 5.25rem);
 
-  font-family: "Source Serif 4 Variable", ui-serif, serif;
+  --font-stack: "Source Serif 4 Variable", ui-serif, serif;
+
+  font-family: var(--font-stack);
   font-size: var(--f3);
   font-weight: 425;
   line-height: var(--leading);
