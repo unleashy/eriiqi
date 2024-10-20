@@ -37,27 +37,11 @@ let { defs }: Props = Astro.props;
 
 <style>
   ol {
-    padding: 0;
     list-style-position: inside;
 
     &:has(:nth-child(10)) {
       padding-inline-start: 2.8ch;
       list-style-position: outside;
-    }
-  }
-
-  li {
-    & > * {
-      vertical-align: text-top;
-    }
-
-    & ol {
-      padding-inline-start: var(--s4);
-    }
-
-    &::marker {
-      font-size: var(--f2);
-      margin-inline-end: var(--s2);
     }
   }
 

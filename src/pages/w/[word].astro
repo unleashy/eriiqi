@@ -47,14 +47,14 @@ let { data }: Props = Astro.props;
 
           {detail.etym !== undefined && (
             <Stack gap={2}>
-              <h3>Etymology</h3>
+              <h3 class="small-caps">Etymology</h3>
               <p>{detail.etym}</p>
             </Stack>
           )}
 
           {detail.rel !== undefined && (
             <Stack gap={2}>
-              <h3>See also</h3>
+              <h3 class="small-caps">See also</h3>
               <p>
                 {intersperse(
                   detail.rel.map((rel) => (
@@ -94,9 +94,6 @@ let { data }: Props = Astro.props;
   h3 {
     font-size: inherit;
     font-weight: 600;
-    font-variant: small-caps;
-    text-transform: lowercase;
-    letter-spacing: 0.033ch;
   }
 
   .indented {
