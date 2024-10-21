@@ -28,9 +28,11 @@ let { parts, ipa }: Props = Astro.props;
 
 <Layout title={`${word} — Eriiqì: a Hsizu dictionary`} mainGap={7}>
   <Fragment slot="header">
-    <div>
-      <a href="/" class="back-link"><span class="arrow">←</span> back</a>
-    </div>
+    <b>
+      <a href="/">
+        <span class="arrow">←</span> back
+      </a>
+    </b>
     <h1>{word}</h1>
     <aside>
       pronounced <span class="ipa" lang="und-fonipa"
@@ -103,13 +105,5 @@ let { parts, ipa }: Props = Astro.props;
     padding-inline-start: var(--s3);
     padding-block-end: var(--s1);
     border-inline-start: 1px dashed var(--c-separator);
-  }
-
-  .back-link {
-    font-weight: 650;
-
-    &:hover {
-      text-decoration: none;
-    }
   }
 </style>

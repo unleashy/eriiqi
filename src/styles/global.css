@@ -18,6 +18,7 @@
   --c-link: var(--c-grey-a12);
   --c-link-hover-bg: var(--c-grey-a3);
   --c-link-underline: color-mix(in oklab, var(--c-grey-a5), var(--c-grey-a6));
+  --c-link-underline-hover: var(--c-grey-a11);
   --c-link-focus-underline: var(--c-teal-12);
 
   --measure: 75ch;
@@ -116,12 +117,11 @@ a {
   text-decoration-thickness: min(2px, max(1px, 0.05em));
   text-underline-offset: calc(0.025em + 2px);
 
-  text-decoration-line: none;
-
   &:hover,
   &:active,
   &:focus {
     text-decoration-line: underline;
+    text-decoration-color: var(--c-link-underline-hover);
   }
 
   &:focus-visible {
