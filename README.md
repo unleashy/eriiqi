@@ -1,4 +1,6 @@
-# Hsizu dictionary
+# Eriiqì
+
+A Hsizu dictionary
 
 ## Licence
 
