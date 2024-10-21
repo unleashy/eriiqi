@@ -30,7 +30,13 @@ const words = defineCollection({
     .object({
       ipa: z.string().optional(),
       parts: z.record(
-        z.enum(["noun", "verb", "adjective", "pronoun"] as const),
+        z.enum([
+          "noun",
+          "verb",
+          "adjective",
+          "pronoun",
+          "interjection",
+        ] as const),
         z
           .object({
             defs: defTree,
