@@ -1,22 +1,23 @@
-noun:
-  defs:
-    - word
-    - bord
-    - word
-    - bord
-    - word
-    - bord
-    - word
-    - bord
-    - word
-    - bord
-  rel: [eriiqì]
+parts:
+  noun:
+    defs:
+      - word
+      - bord
+      - word
+      - bord
+      - word
+      - bord
+      - word
+      - bord
+      - word
+      - bord
+    rel: [eriiqì]
 
-verb:
-  defs:
-    - epic
-    - style
+  verb:
+    defs:
+      - epic
+      - style
 
-pronoun:
-  defs:
-    - a
+  pronoun:
+    defs:
+      - a

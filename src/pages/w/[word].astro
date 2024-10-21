@@ -15,7 +15,7 @@ export const getStaticPaths = (async () => {
   const words = await getCollection("words");
   return words.map((word) => ({
     params: { word: word.id },
-    props: { data: word.data },
+    props: { parts: word.data.parts, ipa: word.data.ipa },
   }));
 }) satisfies GetStaticPaths;
 
@@ -23,7 +23,7 @@ type Params = InferGetStaticParamsType<typeof getStaticPaths>;
 type Props = InferGetStaticPropsType<typeof getStaticPaths>;
 
 let { word }: Params = Astro.params;
-let { data }: Props = Astro.props;
+let { parts, ipa }: Props = Astro.props;
 ---
 
 <Layout title={`${word} — Eriiqì: a Hsizu dictionary`} mainGap={7}>
@@ -33,12 +33,14 @@ let { data }: Props = Astro.props;
     </div>
     <h1>{word}</h1>
     <aside>
-      pronounced <span class="ipa" lang="und-fonipa">/{toIpa(word)}/</span>
+      pronounced <span class="ipa" lang="und-fonipa"
+        >/{ipa ?? toIpa(word)}/</span
+      >
     </aside>
   </Fragment>
 
   {
-    Object.entries(data).map(([part, detail]) => (
+    Object.entries(parts).map(([part, detail]) => (
       <Stack as="article" gap={2}>
         <h2>{capitalise(part)}</h2>
 

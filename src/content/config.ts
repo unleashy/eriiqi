@@ -26,16 +26,21 @@ const defTree: z.ZodType<DefTree> = z
 
 const words = defineCollection({
   loader: glob({ base: "src/content/words", pattern: "**/*.yaml" }),
-  schema: z.record(
-    z.enum(["noun", "verb", "adjective", "pronoun"] as const),
-    z
-      .object({
-        etym: z.string().optional(),
-        defs: defTree,
-        rel: reference("words").array().nonempty().optional(),
-      })
-      .strict(),
-  ),
+  schema: z
+    .object({
+      ipa: z.string().optional(),
+      parts: z.record(
+        z.enum(["noun", "verb", "adjective", "pronoun"] as const),
+        z
+          .object({
+            defs: defTree,
+            etym: z.string().optional(),
+            rel: reference("words").array().nonempty().optional(),
+          })
+          .strict(),
+      ),
+    })
+    .strict(),
 });
 
 export const collections = { words };

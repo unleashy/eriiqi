@@ -1,18 +1,19 @@
-noun:
-  defs:
-    - meaning: a dictionary
-      children:
-        - foo
-        - meaning: bar
-          examples:
-            - hs: foo
-              en: bar
-            - hs: baz
-              en: bux
-        - meaning: epic
-          examples:
-            - hs: "*eriiqìna* sáá"
-              en: I love *dictionaries*.
-    - epic
-  etym: From {er} + {-ii} (diminutive) + {-qì} (one who does ...); literally "worder".
-  rel: [er]
+parts:
+  noun:
+    defs:
+      - meaning: a dictionary
+        children:
+          - foo
+          - meaning: bar
+            examples:
+              - hs: foo
+                en: bar
+              - hs: baz
+                en: bux
+          - meaning: epic
+            examples:
+              - hs: "*eriiqìna* sáá"
+                en: I love *dictionaries*.
+      - epic
+    etym: From {er} + {-ii} (diminutive) + {-qì} (one who does ...); literally "worder".
+    rel: [er]
