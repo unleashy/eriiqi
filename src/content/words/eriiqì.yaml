@@ -12,8 +12,8 @@ parts:
                 en: bux
           - meaning: epic
             examples:
-              - hs: "*eriiqìna* sáá"
-                en: I love *dictionaries*.
+              - hs: ◇b{eriiqìna} sáá
+                en: I love ◇b{dictionaries}.
       - epic
-    etym: From {er} + {-ii} (diminutive) + {-qì} (one who does ...); literally "worder".
+    etym: From ◇{er} + ◇{-ii} (diminutive) + ◇{-qì} (one who does ...); literally "worder".
     rel: [er]

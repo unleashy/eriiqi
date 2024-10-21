@@ -1,6 +1,7 @@
 ---
 import type { DefTree } from "◇content/types";
 import Stack from "◇components/Stack.astro";
+import { renderMarkup } from "◇lib";
 
 interface Props {
   defs: DefTree;
@@ -13,17 +14,17 @@ let { defs }: Props = Astro.props;
   {
     defs.map((def) =>
       typeof def === "string" ? (
-        <li>{def}</li>
+        <li set:html={renderMarkup(def)} />
       ) : (
         <li>
           <div class="nested-def">
-            <p>{def.meaning}</p>
+            <p set:html={renderMarkup(def.meaning)} />
 
             {(def.examples ?? []).map((example) => (
               <p class="example">
-                <i lang="x-hs">{example.hs}</i>
+                <i lang="x-hs" set:html={renderMarkup(example.hs)} />
                 <span class="arrow">→</span>
-                {example.en}
+                <span set:html={renderMarkup(example.en)} />
               </p>
             ))}
 

@@ -5,7 +5,7 @@ import type {
   GetStaticPaths,
 } from "astro";
 import { getCollection } from "astro:content";
-import { capitalise, intersperse, toIpa } from "◇lib";
+import { capitalise, intersperse, renderMarkup, toIpa } from "◇lib";
 import Layout from "◇layouts/Layout.astro";
 import Stack from "◇components/Stack.astro";
 import WordDef from "./_/WordDef.astro";
@@ -50,7 +50,7 @@ let { parts, ipa }: Props = Astro.props;
           {detail.etym !== undefined && (
             <Stack gap={2}>
               <h3 class="small-caps">Etymology</h3>
-              <p>{detail.etym}</p>
+              <p set:html={renderMarkup(detail.etym)} />
             </Stack>
           )}
 

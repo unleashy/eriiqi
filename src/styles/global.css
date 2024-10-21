@@ -172,6 +172,10 @@ li {
   }
 }
 
+b {
+  font-weight: 615;
+}
+
 .icon {
   display: inline-block;
   position: relative;
