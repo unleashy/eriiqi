@@ -7,9 +7,18 @@
   --c-grey-a11: #000a07a0;
   --c-grey-a12: #000805e5;
 
+  --c-teal-11: #008573;
+  --c-teal-12: #0d3d38;
+
+  --c-separator: var(--c-grey-a6);
+
+  --c-focus: var(--c-teal-11);
+  --c-focus-contrast: white;
+
   --c-link: var(--c-grey-a12);
   --c-link-hover-bg: var(--c-grey-a3);
   --c-link-underline: color-mix(in oklab, var(--c-grey-a5), var(--c-grey-a6));
+  --c-link-focus-underline: var(--c-teal-12);
 
   --measure: 75ch;
   --leading: 1.4;
@@ -48,6 +57,15 @@
   text-rendering: optimizeLegibility;
 
   color-scheme: light;
+}
+
+:focus-visible {
+  outline: 3px solid var(--c-focus);
+}
+
+::selection {
+  background: var(--c-focus);
+  color: var(--c-focus-contrast);
 }
 
 *,
@@ -104,6 +122,15 @@ a {
   &:active,
   &:focus {
     text-decoration-line: underline;
+  }
+
+  &:focus-visible {
+    outline: none;
+    background: var(--c-focus);
+    color: var(--c-focus-contrast);
+    text-decoration-color: var(--c-link-focus-underline);
+    text-decoration-thickness: 3px;
+    text-decoration-skip-ink: none;
   }
 }
 
