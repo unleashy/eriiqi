@@ -49,5 +49,39 @@ export function pronounce(word: string): string {
     }
   }
 
-  return ipa;
+  return ipa.normalize("NFKC");
+}
+
+const VOWELS = /(?:[aáàeéèiíìoóòuúùyýỳ]|ɨ[\u{0300}\u{0301}])ː?(?!$)/gv;
+const CODAS = /^[mnʔsɾjw](?:[^aáàeéèiíìoóòuúùɨyýỳ]|$)/v;
+
+export function syllabify(ipa: string): string[] {
+  let result: string[] = [];
+
+  let lastSplit = 0;
+  for (let m of ipa.matchAll(VOWELS)) {
+    let endIndex = m.index + m[0].length;
+    if (CODAS.test(ipa.slice(endIndex, endIndex + 2))) {
+      result.push(ipa.slice(lastSplit, endIndex + 1));
+      lastSplit = endIndex + 1;
+    } else {
+      result.push(ipa.slice(lastSplit, endIndex));
+      lastSplit = endIndex;
+    }
+  }
+
+  if (lastSplit < ipa.length) {
+    result.push(ipa.slice(lastSplit));
+  }
+
+  return result.map((it) => it.normalize("NFKC"));
+}
+
+export function toIpa(word: string): string {
+  let syllables = syllabify(pronounce(word));
+  if (syllables.length > 1) {
+    syllables[0] = `ˈ${syllables[0]}`;
+  }
+
+  return syllables.join(".");
 }

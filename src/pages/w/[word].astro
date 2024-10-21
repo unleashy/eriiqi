@@ -5,7 +5,7 @@ import type {
   GetStaticPaths,
 } from "astro";
 import { getCollection } from "astro:content";
-import { capitalise, intersperse, pronounce } from "◇lib";
+import { capitalise, intersperse, toIpa } from "◇lib";
 import Layout from "◇layouts/Layout.astro";
 import Stack from "◇components/Stack.astro";
 import WordDef from "./_/WordDef.astro";
@@ -33,7 +33,7 @@ let { data }: Props = Astro.props;
     </div>
     <h1>{word}</h1>
     <aside>
-      pronounced <span class="ipa" lang="und-fonipa">/{pronounce(word)}/</span>
+      pronounced <span class="ipa" lang="und-fonipa">/{toIpa(word)}/</span>
     </aside>
   </Fragment>
 
