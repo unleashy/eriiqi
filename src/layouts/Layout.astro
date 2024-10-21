@@ -2,6 +2,8 @@
 import { ClientRouter } from "astro:transitions";
 import Stack from "◇components/Stack.astro";
 import "◇styles/global.css";
+import sourceSerif4RomanUrl from "◇styles/fonts/source-serif-4-variable-roman.woff2?url";
+import sourceSerif4ItalicUrl from "◇styles/fonts/source-serif-4-variable-italic.woff2?url";
 
 interface Props {
   title: string;
@@ -21,7 +23,15 @@ let { title, mainGap = 4 } = Astro.props;
       rel="preload"
       as="font"
       type="font/woff2"
-      href="/fonts/SourceSerif4Variable-Roman.subset.woff2"
+      href={sourceSerif4RomanUrl}
+      crossorigin="anonymous"
+      transition:persist
+    />
+    <link
+      rel="preload"
+      as="font"
+      type="font/woff2"
+      href={sourceSerif4ItalicUrl}
       crossorigin="anonymous"
       transition:persist
     />
