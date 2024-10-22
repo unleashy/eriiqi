@@ -1,23 +1,6 @@
 parts:
   noun:
     defs:
-      - word
-      - bord
-      - word
-      - bord
-      - word
-      - bord
-      - word
-      - bord
-      - word
-      - bord
-    rel: [eriiqì]
-
-  verb:
-    defs:
-      - epic
-      - style
-
-  pronoun:
-    defs:
-      - a
+      - speech, as in the ability to speak
+      - spoken language; excludes Hsizu itself, for which ◇{hsizu} is used
+      - communication between humans
