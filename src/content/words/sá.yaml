@@ -1,0 +1,9 @@
+parts:
+  verb:
+    defs:
+      - meaning: to love (someone)
+        examples:
+          - hs: Niijími ◇b{sáá}.
+            en: I ◇b{love} you.
+    notes: Transitive.
+    rel: [asáta]

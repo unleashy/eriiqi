@@ -9,15 +9,17 @@ let collator = new Intl.Collator("und", {
   collation: "eor",
   sensitivity: "base",
 });
-words.sort(({ id: a }, { id: b }) =>
-  // move suffixes etc. to the end
-  b.startsWith("-") ? collator.compare(b, a) : collator.compare(a, b),
-);
+words.sort(({ id: a }, { id: b }) => {
+  let aNoDash = a.replace(/^-/, "");
+  let bNoDash = b.replace(/^-/, "");
+  return collator.compare(aNoDash, bNoDash);
+});
 
 let index = [
-  ...groupBy(words, (word) =>
-    word.id[0] === "ụ" ? word.id[0] : word.id.normalize("NFKD")[0],
-  ),
+  ...groupBy(words, ({ id: word }) => {
+    let firstLetter = word.startsWith("-") ? word[1] : word[0];
+    return firstLetter === "ụ" ? firstLetter : firstLetter.normalize("NFKD")[0];
+  }),
 ];
 ---
 

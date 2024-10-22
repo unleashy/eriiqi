@@ -1,0 +1,11 @@
+parts:
+  pronoun:
+    defs:
+      - meaning: "proximate third person singular pronoun: “he/she/they”"
+        examples:
+          - hs: Magra ◇b{ụchaas} hánxụ̀r.
+            en: ◇b{He} is here.
+    notes: >
+      This pronoun is ◇em{proximate}, which means it refers to whatever third
+      person is more relevant to the conversation; cf. ◇{bàqmú}, which is the
+      other third person pronoun.
