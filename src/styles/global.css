@@ -10,6 +10,9 @@
   --c-teal-11: #008573;
   --c-teal-12: #0d3d38;
 
+  --c-teal-a3: #00c69d1f;
+  --c-teal-a11: #008573;
+
   --c-separator: var(--c-grey-a6);
 
   --c-focus: var(--c-teal-11);
@@ -20,6 +23,9 @@
   --c-link-underline: color-mix(in oklab, var(--c-grey-a5), var(--c-grey-a6));
   --c-link-underline-hover: var(--c-grey-a11);
   --c-link-focus-underline: var(--c-teal-12);
+
+  --c-badge-teal-bg: var(--c-teal-a3);
+  --c-badge-teal-text: var(--c-teal-a11);
 
   --measure: 75ch;
   --leading: 1.4;

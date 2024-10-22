@@ -56,6 +56,13 @@ let { parts, ipa }: Props = Astro.props;
             </Stack>
           )}
 
+          {detail.notes !== undefined && (
+            <Stack gap={2}>
+              <h3 class="small-caps">Notes</h3>
+              <p set:html={renderMarkup(detail.notes)} />
+            </Stack>
+          )}
+
           {detail.rel !== undefined && (
             <Stack gap={2}>
               <h3 class="small-caps">See also</h3>

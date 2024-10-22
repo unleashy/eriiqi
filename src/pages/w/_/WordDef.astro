@@ -19,14 +19,14 @@ let { defs }: Props = Astro.props;
         <li>
           <div class="nested-def">
             {def.labels ? (
-              <p>
-                <span
-                  class="labels"
-                  set:html={renderMarkup(def.labels.join(", "))}
-                />
-                {" · "}
-                <Fragment set:html={renderMarkup(def.meaning)} />
-              </p>
+              <div class="def-labelled">
+                <aside class="def-labels">
+                  {def.labels.map((label) => (
+                    <span class="small-caps">{label}</span>
+                  ))}
+                </aside>
+                <p set:html={renderMarkup(def.meaning)} />
+              </div>
             ) : (
               <p class="def" set:html={renderMarkup(def.meaning)} />
             )}
@@ -57,8 +57,29 @@ let { defs }: Props = Astro.props;
     }
   }
 
-  .labels {
-    font-style: italic;
+  .def-labelled {
+    display: inline-flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+    gap: var(--s1);
+  }
+
+  .def-labels {
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    gap: var(--s1);
+
+    & > * {
+      line-height: 2.25cap;
+      font-size: var(--f1);
+      font-weight: 450;
+      background-color: var(--c-badge-teal-bg);
+      color: var(--c-badge-teal-text);
+      border-radius: 8px;
+      padding-inline: var(--s1);
+    }
   }
 
   .example {

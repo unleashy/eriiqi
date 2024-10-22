@@ -43,6 +43,7 @@ const words = defineCollection({
           .object({
             defs: defTree,
             etym: z.string().optional(),
+            notes: z.string().optional(),
             rel: reference("words").array().nonempty().optional(),
           })
           .strict(),
