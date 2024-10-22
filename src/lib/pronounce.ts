@@ -27,6 +27,8 @@ const CLUSTER_MAP = mapOf({
 export function pronounce(word: string): string {
   let ipa = "";
 
+  word = word.replaceAll("-", "");
+
   let segmenter = new Intl.Segmenter("en", { granularity: "grapheme" });
   let chars = [...segmenter.segment(word)].map((it) => it.segment);
   for (let i = 0; i < chars.length; ++i) {
@@ -52,7 +54,7 @@ export function pronounce(word: string): string {
   return ipa.normalize("NFKC");
 }
 
-const VOWELS = /(?:[aáàeéèiíìoóòuúùyýỳ]|ɨ[\u{0300}\u{0301}])ː?(?!$)/gv;
+const VOWELS = /(?:[aáàeéèiíìoóòuúùyýỳ]|ɨ[\u{0300}\u{0301}]?)ː?/gv;
 const CODAS = /^[mnʔsɾjw](?:[^aáàeéèiíìoóòuúùɨyýỳ]|$)/v;
 
 export function syllabify(ipa: string): string[] {

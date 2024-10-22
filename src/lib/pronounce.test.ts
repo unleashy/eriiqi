@@ -98,17 +98,23 @@ describe("clusters", () => {
   });
 });
 
+test("ignores dashes", () => {
+  expect(pronounce("-ii")).toEqual("iː");
+  expect(pronounce("a-b-c")).toEqual("abc");
+});
+
 describe("syllabify", () => {
   test.each([
     ["e", "e"],
+    ["iː", "iː"],
     ["yːn", "yːn"],
     ["kasa", "ka.sa"],
     ["asa", "a.sa"],
     ["asta", "as.ta"],
     ["astaɾ", "as.taɾ"],
-    ["kɾe", "kɾe"],
-    ["kɾen", "kɾen"],
-    ["kɾensa", "kɾen.sa"],
+    ["kɾɨ", "kɾɨ"],
+    ["kɾɨn", "kɾɨn"],
+    ["kɾɨnsa", "kɾɨn.sa"],
     ["ajóːta", "a.jóː.ta"],
     ["xɨ́ːɾka", "xɨ́ːɾ.ka"],
     ["awja", "aw.ja"],
