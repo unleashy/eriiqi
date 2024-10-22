@@ -6,6 +6,7 @@ export interface Example {
 export interface FullDef {
   meaning: string;
   examples?: Example[];
+  labels?: string[];
   children?: Array<string | FullDef>;
 }
 

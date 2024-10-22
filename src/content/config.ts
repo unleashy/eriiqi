@@ -17,6 +17,7 @@ const defTree: z.ZodType<DefTree> = z
           .array()
           .nonempty()
           .optional(),
+        labels: z.string().array().nonempty().optional(),
         children: z.lazy(() => defTree).optional(),
       })
       .strict(),
@@ -31,11 +32,12 @@ const words = defineCollection({
       ipa: z.string().optional(),
       parts: z.record(
         z.enum([
-          "noun",
-          "verb",
           "adjective",
-          "pronoun",
           "interjection",
+          "noun",
+          "pronoun",
+          "suffix",
+          "verb",
         ] as const),
         z
           .object({

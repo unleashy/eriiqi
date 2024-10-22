@@ -1,0 +1,10 @@
+parts:
+  suffix:
+    defs:
+      - meaning: forms the diminutive of nouns and pronouns (most often)
+        examples:
+          - hs: ◇{ita} + -ii
+            en: ◇hs{itaii} “little girl”
+      - forms the diminutive of adjectives and adverbs, like English “somewhat”
+      - meaning: formed the diminutive of verbs
+        labels: [not productive]

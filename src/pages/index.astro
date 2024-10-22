@@ -9,7 +9,10 @@ let collator = new Intl.Collator("und", {
   collation: "eor",
   sensitivity: "base",
 });
-words.sort((a, b) => collator.compare(a.id, b.id));
+words.sort(({ id: a }, { id: b }) =>
+  // move suffixes etc. to the end
+  b.startsWith("-") ? collator.compare(b, a) : collator.compare(a, b),
+);
 
 let index = [
   ...groupBy(words, (word) =>
