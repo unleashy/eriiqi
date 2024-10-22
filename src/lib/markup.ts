@@ -34,7 +34,12 @@ function render(tokens: Iterable<Token>): string {
         openTagStack.push(token.tag);
         textStack.push("");
         if (token.tag !== "") {
-          write(`<${token.tag}>`);
+          if (token.tag === "hs") {
+            write(`<i lang="x-hs">`);
+            openTagStack[openTagStack.length - 1] = "i";
+          } else {
+            write(`<${token.tag}>`);
+          }
         }
         break;
       }

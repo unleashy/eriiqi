@@ -25,3 +25,7 @@ test("nested tags", () => {
     `<b>foo <i>bar</i> bux</b>`,
   );
 });
+
+test("hs tag", () => {
+  expect(renderMarkup("◇hs{abcd}")).toEqual(`<i lang="x-hs">abcd</i>`);
+});
